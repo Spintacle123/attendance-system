@@ -1,5 +1,5 @@
 <template>
-    <header class="flex justify-between items-center py-4 px-8 bg-white border-b-2 border-custom-gray">
+    <header class="fixed top-0 flex justify-between items-center py-4 px-8 bg-white border-b-2 border-custom-gray w-[100vw]">
       <img src="/img/logo.png" class="w-[178px]">
       <Icon @click="isOpen = !isOpen" icon="ic:baseline-menu" :style="{ fontSize: '24px', color: '#a3a3a3', cursor: 'pointer' }"/>
     </header>

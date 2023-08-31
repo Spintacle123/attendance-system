@@ -1,19 +1,21 @@
 <template>
-    <main class="flex flex-col items-center gap-4 py-6 px-8 bg-white">
- <!-- summary div-->       
-      <div class="flex items-center grow gap-4 py-3 px-6 rounded-lg border-2 border-custom-gray w-[100%]">
+    <main class="flex flex-col items-center gap-4 py-6 px-8 mt-[5rem] bg-white">
+<!-- SUMMARY SECTION-->       
+      <section class="flex items-center grow gap-4 py-3 px-6 rounded-lg border-2 border-custom-gray w-[100%]">
         <div class="flex items-center gap-4 p-4 w-[40%]">
-            <Icon icon="mdi:megaphone" :style="{ fontSize: '64px', color: '#E42323' }"/>
+            <Icon icon="mdi:megaphone" :style="{ fontSize: '64px', color: 'var(--custom-red)' }"/>
             <span class="font-bold text-2xl text-[#000]">Today, 23 August 2023</span>
         </div>
+    <!-- Cards -->
         <VCard title="Total Employees" total="50" icon="clarity:employee-solid"/>
         <VCard title="On Time" total="25" icon="mdi:clock"/>
-        <VCard title="Late In" total="20" icon="material-symbols:assignment-late" color="#E42323"/>
-        <VCard title="Absent" total="5" icon="material-symbols:close" color="#E42323"/>
-      </div>  
-<!-- employee attendance div -->
-      <div class="flex flex-col items-center grow rounded-lg border-2 border-custom-gray w-[100%]">
-        <div class="flex items-center gap-6 py-4 px-6 w-[100%]">
+        <VCard title="Late In" total="20" icon="material-symbols:assignment-late" color="var(--custom-red)"/>
+        <VCard title="Absent" total="5" icon="material-symbols:close" color="var(--custom-red)"/>
+      </section>  
+<!-- EMPLOYEE ATTENDANCE SECTION -->
+      <section class="flex flex-col items-center grow rounded-lg border-2 border-custom-gray w-[100%]">
+    <!-- Employee attendance header -->
+        <header class="flex items-center gap-6 py-4 px-6 w-[100%]">
             <div class="grow">
                 <h2 class="font-bold text-2xl">Employee Attendance</h2>
                 <span class="text-sm ">Keep track of the employee attendance on a daily basis</span>
@@ -21,81 +23,105 @@
             <div class="flex gap-4 text-sm font-bold text-white">
                 <VButton title="Export" icon="solar:upload-outline" @handleClick="cons"/>
                 <VButton title="Add Employee" icon="material-symbols:add"  @handleClick=""/>
-                <VButton title="23 August 2023" icon="material-symbols:add" styled="true" @handleClick=""/>
-              
+                <VButton title="23 August 2023" icon="solar:calendar-linear" styled="secondary" @handleClick=""/>
+                
+                <input type="date" class="flex items-center gap-4 py-3 px-6 rounded-lg text-black border border-custom-gray "/>   
             </div>
-        </div>
+        </header>
+    <!-- Filtering buttons -->
         <div class="flex items-center gap-6 py-4 px-6 w-[100%] border-t">
             <div class="grow flex gap-4 text-sm font-bold text-white ">
-                <VButton title="All Employee" icon="solar:upload-outline" @handleClick="cons"/>
-                <VButton title="Interns" icon="solar:upload-outline" @handleClick="cons" styled="true"/>
+                <VButton title="All Employee"  @handleClick="cons"/>
+                <VButton title="Interns" @handleClick="cons" styled="secondary"/>
             </div>
             <div class="flex gap-4 text-sm font-bold text-white">
-                <div class="flex items-center gap-4 p-3 rounded-md border border-custom-gray text-black">
+                <div class="flex items-center gap-4 p-3 rounded-lg border border-custom-gray text-black">
                     <Icon icon="ant-design:search-outlined" :style="{  color: '#a3a3a3'}"/>
-                    <input type="text" placeholder="Search" class="focus:outline-none"/>
+                    <input type="text" placeholder="Search" class="focus:outline-none"  v-model="searchText"/>
                 </div>
-                <VButton icon="ion:filter" @handleClick="cons" styled="true"/>
+                <VButton icon="ion:filter" @handleClick="cons" styled="secondary"/>
             </div>
         </div>
-        <table class="table-auto w-[100%] p-4 ">
-            <thead class="font-bold text-[15px] text-[#808080] bg-[#F8F8F8]">
-                <tr class="text-left">
-                    <th class="py-3 px-6">Employee ID</th>
-                    <th class="py-3 px-6">Employee</th>
-                    <th class="py-3 px-6">Date</th>
-                    <th class="py-3 px-6">Shift</th>
-                    <th class="py-3 px-6">Time In</th>
-                    <th class="py-3 px-6">Time Out</th>
-                    <th class="py-3 px-6">Overtime</th>
-                    <th class="py-3 px-6">Work Time</th>
-                    <th class="py-3 px-6">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in items.slice(0,3)" class="text-[15px] hover:bg-red-50 cursor-pointer "
-                >
-                    <td class="py-3 px-6">{{item.id}}</td>
-                    <td class="flex gap-4 py-3 px-6">
-                        <img :src="item.img" class="rounded-full w-[40px] h-[40px] object-cover"/> 
-                        <h4 class="flex flex-col font-bold text-black">
-                            {{item.name}} 
-                            <span class="font-normal text-sm text-[#667085]">{{ item.role }}</span>
-                        </h4>
-                    </td>
-                    <td class="py-3 px-6 min-w-[10em]">23 August 2023</td>
-                    <td class="py-3 px-6"></td>
-                    <td class="py-3 px-6">{{ item.timeIn }} </td>
-                    <td class="py-3 px-6">{{ item.timeOut }} </td>
-                    <td class="py-3 px-6">{{ item.overTime }} hrs</td>
-                    <td class="py-3 px-6">{{ item.workTime }} hrs</td>
-                    <td class="py-3 px-6">{{ item.status }} </td>
-              
-                   
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>Page 1 of 20</td>
-                </tr>
-            </tfoot>
-        </table>
-      </div>
-      
+    <!-- Table -->
+        <div class="w-[100%] border-t h-[40vh] overflow-auto">
+            <table class="table w-[100%] ">
+                <thead class="font-bold text-[15px] text-[#808080] bg-[#F8F8F8] sticky top-0">
+                    <tr class="text-left">
+                        <th class="py-3 px-6">Employee ID</th>
+                        <th class="py-3 px-6">Employee</th>
+                        <th class="py-3 px-6">Date</th>
+                        <th class="py-3 px-6">Shift</th>
+                        <th class="py-3 px-6">Time In</th>
+                        <th class="py-3 px-6">Time Out</th>
+                        <th class="py-3 px-6">Overtime</th>
+                        <th class="py-3 px-6">Work Time</th>
+                        <th class="py-3 px-6">Status</th>
+                        <th class="py-3 px-2"></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in filteredItemsByName.slice(0,6)" class="text-[15px] hover:bg-red-50 cursor-pointer ">
+                        <td class="py-3 px-6">{{item.id}}</td>
+                        <td class="flex gap-4 py-3 px-6">
+                            <img :src="item.img" class="rounded-full w-[40px] h-[40px] object-cover"/> 
+                            <h4 class="flex flex-col font-bold text-black">
+                                {{item.name}} 
+                                <span class="font-normal text-sm text-[#667085]">{{ item.role }}</span>
+                            </h4>
+                        </td>
+                        <td class="py-3 px-6 min-w-[10em]">23 August 2023</td>
+                        <td class="py-3 px-6"></td>
+                        <td class="py-3 px-6">{{ item.timeIn }} </td>
+                        <td class="py-3 px-6">{{ item.timeOut }} </td>
+                        <td class="py-3 px-6">{{ item.overTime }} hrs</td>
+                        <td class="py-3 px-6">{{ item.workTime }} hrs</td>
+                        <td class="py-3 px-6">{{ item.status }} </td>
+                        <td class="py-3 px-2"><VButton icon="ri:delete-bin-line" iconBtn="iconBtn"/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <!-- Pagination buttons -->
+        <div class="flex items-center justify-between gap-6 py-4 px-6 w-[100%] border-t">
+            <span class="font-semibold text-sm">Page 1 of 20 </span>
+            <div class="flex gap-4">
+                <VButton styled="secondarySmallBtn" title="Previous"/>
+                <VButton styled="secondarySmallBtn" title="Next"/>
+            </div>
+        </div>
+      </section>
     </main>
 </template>
+
 <script setup>
+
 import { Icon } from '@iconify/vue';
+import { ref ,computed } from 'vue'
+
+const searchText = ref("")
+
 const cons = () => {
   console.log('Button clicked!');
 };
+
+
+const filteredItemsByName = computed(() => {
+    if (!searchText.value) {
+        return items.value;
+    }
+    return items.value.filter((item) =>
+        item.name.toLowerCase().includes(searchText.value.toLowerCase())||
+        item.role.toLowerCase().includes(searchText.value.toLowerCase())
+    );
+});
 
 const items = ref([
     {
         id: 1001,
         img:'data:image/jpeg;base64,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',
         name: 'Sam Molin',
-        role: 'Front End Developer',
+        role: 'Back End Developer',
         date: '23 August 2023',
         shift: '',
         timeIn: '9:00',
@@ -131,7 +157,57 @@ const items = ref([
         status: 'Half Day'
     },
     {
-        id: 1001,
+        id: 1004,
+        name: 'Sam Molin',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: '',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Half Day'
+    },
+    {
+        id: 1005,
+        name: 'Manuel Solis',
+        img: 'https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: '',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Half Day'
+    },
+    {
+        id: 1006,
+        name: 'Sam Molin',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: '',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Half Day'
+    },
+    {
+        id: 1005,
+        name: 'Manuel Solis',
+        img: 'https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: '',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Half Day'
+    },
+    {
+        id: 100,
         name: 'Sam Molin',
         role: 'Front End Developer',
         date: '23 August 2023',
