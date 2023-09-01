@@ -1,13 +1,15 @@
 <template>
-       <button @click="$emit('handleClick')" :class="[iconBtn? 'iconOnly': styled  ? styled : 'primary', 'flex items-center gap-4 py-3 px-6 rounded-lg']">
+       <button @click="$emit('handleClick')" :class="[iconBtn? 'iconOnly': styled  ? styled : 'primary', 'flex items-center gap-4 py-3 px-6 rounded-lg active:bg-white active:text-black']">
         <Icon v-if="icon" :icon="icon" :class="iconBtn"/> {{ title }}
       </button>
 </template>
+
 <script setup>
 import { Icon } from '@iconify/vue';
 defineProps(['title', 'styled', 'icon','iconBtn', 'on-click'])
 defineEmits(['handleClick'])
 </script>
+
 <style>
 .primary{
     background-color: #E42323;
