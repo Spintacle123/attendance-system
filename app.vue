@@ -1,9 +1,12 @@
-<script>
-  import "./public/index.css"
-</script>
 <template>
   <div>
     <NuxtPage/>
   </div>
 </template>
+
+<style >
+:root{
+  --custom-red: #E42323;
+}
+</style>
 

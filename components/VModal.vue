@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-center fixed inset-0 w-screen h-screen bg-[#d9d9d966]">
+    <div class="flex items-center justify-center fixed inset-0 w-screen h-screen bg-[#d9d9d966] z-40">
       <div class="flex flex-col items-center gap-3 absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] px-4 py-8 rounded-lg bg-white shadow-md  text-center" :style="{ borderColor: color}">
         <img 
           v-if="img" 

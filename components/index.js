@@ -5,7 +5,95 @@ export const employeeData = [
         name: 'Sam Molin',
         role: 'Back End Developer',
         date: '23 August 2023',
-        shift: '',
+        shift: 'AS',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Present'
+    },
+    {
+        id: 1002,
+        name: 'Claire Lim',
+        img:'data:image/jpeg;base64,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',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: 'NS',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Present'
+    },
+    {
+        id: 1003,
+        name: 'Manuel Solis',
+        img: 'https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: 'MS',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Half Day'
+    },
+    {
+        id: 1004,
+        name: 'Sam Molin',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: 'MS',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Active'
+    },
+    {
+        id: 1005,
+        name: 'Manuel Solis',
+        img: 'https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: 'MS',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Half Day'
+    },
+    {
+        id: 1006,
+        name: 'Sam Molin',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: 'MS',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Half Day'
+    },
+    {
+        id: 1005,
+        name: 'Manuel Solis',
+        img: 'https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: 'MS',
+        timeIn: '9:00',
+        timeOut: '8:00',
+        overTime: '0.00',
+        workTime: '05.00',
+        status: 'Half Day'
+    },
+    {
+        id: 100,
+        name: 'Sam Molin',
+        role: 'Front End Developer',
+        date: '23 August 2023',
+        shift: 'MS',
         timeIn: '9:00',
         timeOut: '8:00',
         overTime: '0.00',
@@ -18,7 +106,7 @@ export const employeeData = [
         img:'data:image/jpeg;base64,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',
         role: 'Front End Developer',
         date: '23 August 2023',
-        shift: '',
+        shift: 'MS',
         timeIn: '9:00',
         timeOut: '8:00',
         overTime: '0.00',
@@ -36,7 +124,7 @@ export const employeeData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
+        status: 'Present'
     },
     {
         id: 1004,
@@ -48,7 +136,7 @@ export const employeeData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
+        status: 'Absent'
     },
     {
         id: 1005,
@@ -61,7 +149,7 @@ export const employeeData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
+        status: 'Present'
     },
     {
         id: 1006,
@@ -73,7 +161,7 @@ export const employeeData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
+        status: 'Present'
     },
     {
         id: 1005,
@@ -86,7 +174,7 @@ export const employeeData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
+        status: 'Present'
     },
     {
         id: 100,
@@ -98,95 +186,7 @@ export const employeeData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
-    },
-    {
-        id: 1002,
-        name: 'Claire Lim',
-        img:'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PEBAPDw8PEBAWFRAVEA8VFQ8NEBAVFRUWFhYRFhYYHSghGBolGxcVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGysmHSUtLS0tLS8rLysvLS0tLS8tLS0tLi0tLS0rLS0tLS0tLS0tLS0tKystLS0tLS0tLS0tOP/AABEIALcBEwMBIgACEQEDEQH/xAAcAAEBAAIDAQEAAAAAAAAAAAAAAQIGAwQFBwj/xAA7EAACAQIEBAMGAwYGAwAAAAAAAQIDEQQSITEFQVFhBiJxBxMygZGhYrHBFEJSgtHwIzSiwuHxM1OS/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAECBAMF/8QAJhEBAAICAgIBBAIDAAAAAAAAAAECAxEhMQQSMlFxgdEiUhMzQf/aAAwDAQACEQMRAD8A+tgAsqEKQCEZWQDEhkSxAlhYti2AxsLFsWwGNgkZWKkBjYWM7EsBhYWMiEJY2JYysLAY2LYysLEoY2KUACgpIIqBQBSIoAAAAAAAAAAACFIBGCkAhDIhAiRWWwsBLFsVItgJYWOrxPiFLDU3VrTUILnZv7I+dcR9rtOm5wp0XOSV1J+WDb/d3v8AP7IJfULGDmuqPz7xj2mcTxE/JX/Z4WS91SjBR5Xbck5Xb7q3569jPEOKqSjKpXqSkrKE27ZfS23frzBp+ieK+JcNh6U6spXSi5JJxvL0V766fU5vDnG6WPoRr0no7qUXpKEl8UJd0z8wvETlZTk5pXy525JK1rI9DB+JsZRVKOHr1KMaesVBtRc3fNOcdpN/iTIH6jsSxpXs/wDHceJXo1Ixp14Rg7qWaNXlKS0WWztp3WrN3sShjYljNoliRiDIAQFAApCgCgAAAAAAAAAAAAIygCEKAICggEWwRlYCJHR4xxCOGpSqzlGKX8Ty37X6nePlXt0xUsmFoxnaLlOU6adpN2WSduaXmXzA0/xn45rcQVKLi6EY57xjKU4zu1lb25cntdmn1m1u7dertbQkVd3TWyzdVdv+/mdbEK70fp1ZCzOckpXitO/6nE6nXtp+h7/A/CWIxKzWyw6v9D1a3gOcf37r6nOctInW3SMN5jemlKenpfUKT5I2PFeF5xT1eibtybtpoa/ODi3eMkurTWvoWreLdK2pavbmwHEK1CpGrRqyp1I/DOLyyX9V2eh9y9mfj2vxKrUo4lUouNOm4yinBzneSknrbVRzWXc+CLq/Vd7nueDuJyw2LoTTlZ1IRnDPKmpJu1nrbnz0LqP1M0Y2McJVVSnTqRuoyjCUU1lklJJpNcnqcliUMbEMiBCAoAAFCQABAAAkAAAAAAAAAAEAKBCgqAIoKQIfLvbrTk6GHyYfPmlLPX937zIkvLDMtYt5pfR9T6kaX7SuOV8NQnChKNN5IzlVds2V1IwcKcWmm7PV8roD88Yei4xc53StZLZ32Nw8JeEXXdKpNJwlaTdrfy/T8zXaVGVWV5aa2Sdz7b4WwXucNTg9Ha/p2OGa0xHDTgrEzy9COAhTglBJK1rJHm4miezNNo6NVGKY3LfE8NexmDTvoatxnhsZJpxRvGOpvoa5j6ZeOJVtzD5fjcLKjLK9t4v57DB6yjortqyva8r6LTbobN4j4fnipJaq9/Q8jw7wylisRHD1ZypxkpJTWXSVrRvm5Zmr2u7bG6lvaHnZK+sv0d4Hw2KpYOnDFq1RbK6k1Gy0bWl73PfZ1uEYepSoUqdWfvKkIRjOpZLO4q2a3VnaZ0cmFiGbMWEMQUAQoAAAAAAEgKQAUhQIAAAAAAAAUhQKUxAFNS9qlDPwvEWim4ulJPnFe8ipNO2mlzbLnk+LsP73AYyn1o1WuesYuS/IgfnbhKvXowinJuUVl63aX6n2jFY73EYxjTnVqNaU4K+2l2+SPlXg2FKeMoT/AMWnNWajKMZxm2raSVnFdPLL1PpuJxlaUJ5KcrrRRTyXf4pb2M2af5Q2YI/jLxOIeMsTTuv2KUfXO/8Aac3BfEv7SmnBwkrXT/Q8XHVsWnlcHCL+LzU2t7OyV7K3Vvbud7w7hXG1Sp5FmSb8rut20tU9F9ylqxrbpSZ3p3eN8ajRi203bZc22adjuMYyp5oUIxjyctftc9TjcL1ZxeaV7Sg3K1rXvG2zT0+h4taFfSMfd2XJuV9tNu9yccRMbRkmYnTlwtWpVTp1oKLadpRd0+1t0zy/AfDJ4jiuGop2carnJ9I0neX1tb5nv8Oo1NqqSTU7rdLLFyUl0eh7XsowylxbETdKEXSo1FGUIqGb3lSLzTtvK2ifR87HXFPLhmjh9lZGZGLO7OxZizNmLCGIKQAAAABQAACQAAQoAEAAAAAAAABABbkuRsxcgM7mM0mmmk00009mno0zHMTMB874hwGlRxtLJmbjOc1FKOSnRcUoxvvdSaSXQ2OjRWs2tP3nzXc5ON4NOpGsk82Wza1TS1d16JO/ZnmYrFyp05pbpHnZNxbUvTxzE1iYdbG0qSlmai1veydzu4aKrxp5Vlpxu3NpKDdtIrqanw6nCq5VK9aFON9ISnliv5b2O1j6kGkqeIk0vhyyqKKXoiNOm3V8Q0G6uaNsyacfTo/kYYLF0paT0ns4uLctOjS1PI4ilm81STe+jaOCGNp/Dn1XLXMu/wDyW9Z1pWbc7bHxKMWvJfu2nH5JP5Gy+zGjFVMXNRWacaDb52Saaf2NGeKk15nflfronf7n0v2d8PlToTrThldVwyPS8oRjpL0u39Drhids+eY02wjKRmtiYsjKzECMhWQIAAAKQoAABIAAAAAgAAAAAAQCMhWY3AjMGZMwkwI2YthmLIEqQjNOMkpReji9UzWeLU1Cck9vzi9jZjxfFMNKbW/mXrs7fmcM9ParR49/W2vq1XAeHqGIc1U0s1le7SWsX/fc3OpjqVLLGph6M7WyyVnbW+zWmtuprHC6izaOz/PscnGMLOprdJc90/scIvrht9YmeXb43xXD01mp4alfz62ir3d/lyNExVVVajquMILRWikr2PVxnDcsXdp/V/meJi3l5/It7b6UmsVh2eG4aWJrU6NNeaTyx+espvsld+iPuWFoxpwhTj8MIxjH0ikl+Ro/st4XTVCWLavUlKcIvlGEbXt6u932RviNOOuoYst/aVIykZ0ckZiysxYQgAAgAAFIUAAAkAAAAAQAAAAAIykYGLMWZMxYGLMGZSONgRmJWzgxGJhTV5yUV3f5dSJmIjcpjnpy3Nd4txWlWqvDw1lTUZTly890kv8A5ZycQ4rmjLLpBbvnL/g0Hw7j82PxWZ/+RU8v8l9P9TMNvIjJaa06hsx4fXVrdvZ4hhJXzQbjLdHmYzxBiKSy1IZrbSj/AENjrvQ8LidLNra5zifq0zH0eFivE1Wossab9XY6EFObzTd305Her0OxxuFlodomHG0TPbe/B3jChhKFHDVac0s071llcU5SbV472PpVKpGSUotSi1eMk7pp80z8342pJ02k7ZWpX7Jq6N+8D+KP2b/DqtuhLXnJ03/El0fNF65prOrdOF8W43Xt9VIzGlVjOMZwkpRkk4yWqaezRTUyhiytkYEYBAAAAFIAKAAkAAAAAQAAAAAIwRgYsxZkzzOL8Whh4vVOdrqO9u7/AKcyt71pG7JrWbTqHcrVIxTlKSiubbSR49bxDh05KLc5JN6JpPtdmo8Xx9WupTc5Zo6xjeyst7I8jB4hfH0j667Hn3820/CGyvixHyl78PFtWsmrxhq15E83be7OlhMXKq1nvKWZKUm7uW5ruGqZde56vC5+ZpfxWXz/AOzJlta3ctNKxXqHs8VqZaMkudzR6V41Y1Y6O+vpscPiPjFevKWStKlRi7RjDRyUX8Unu79NjsXy68r/AFL4q/49TP8A1FrezbIYlyivQ6labd0ZcPmnFW1XIzxEPod0w8avB3OrUpt3NhWBvqderhrPYmJVmGr4ik8sl18q9W0j0KHlSRxY+pKD8kU7a3e3on1315CjWU4qS2f1TWjT7p6HPJbasRp7fDfEWKwjSo1ZKOv+G/PT318r2+Vjc+E+0KjO8cTD3bt8cL1Iv+Xdfc+ZyYjImmW9OpVtirbuH3HA8cwldpUsRTlJ7Qvlm/5XZnfZ8AzW2uvsbDwTxrisM0pydelpeE3eaX4Zb/J6Gmnlf2hnv439X10HV4bj6WJpQrUZZoSWj5rrFrk10O0bInbMAAAAAKCFCQAAAABAAAAIwBGUxYGLPnviOrmqOrHZOba6pLQ3riFXJSqS6Rl+R8+xyvmj1Ulfpf8A7PO8+/xr+WzxK9y8x1lJXW/T9Dy1DJKpDluu63T+h2cXeLhpZ2kn0upN/qcNaWaKmt1eEv0+2nyMcNcupT2O5h6jjCo43zWdvW2h0KL1sd/CPysmUQ8bDYNyWW3qd2jQnGCi7OMX5X+8vwvqj1MOkuRnCK8y5MibyRVw8JruF4v4W/o+TPWlG54koZH2Z6eBr5lZ7rf+p1pbfCHfpqyOHFa+v5HNmSW69OZ5/Ea+SOmsnsdJ45O2vcRlZyha9sqg+ibbcbdrb9+2vXpLJy0esut+v0sdjEx8yju1rN/ifL5L7tmNjltEjezTuupkkYwguhzJbIgcdjjq6WX1O1RV7s6kneTt6ImCW1+zrjv7PiP2ecv8Kq0u0am0ZfPZ/LofWT8+tZWtdevQ+78KxXvqFCt/7KVKb9ZQUmvqzf4t9xpi8iup27ZSBGpnUAACkKAAASAACAAAQpAIzFlZhJgdDjf+Xqr8P6o0OvPMtd9deTN08S1cuHn3dNf6kzQMTW93Us/gls+jPK87nJH2/b0PE4pP3dDitNzpqa3jv6dTz8DVTlKP8S27rVf7j26bSk4vWEtH8zXMVH3FVro7xfXojPTnh3t9RvLL0Z3qE9ex1ccldSWzs0+zGFqllXqRkZZzrqRM5TSzkqSvddfszDA4m0k9v3ZLp0/vucU5nVm9br5rqWrwiW351kd7JXTza3Vr6Llrf8tuet8Rxbz6fG9vwLr6/wDZjiOLSyKEfitrJ7evc6dGOt278782+p0vbasKoW0+rORLQxXMyzFAZi57mEpmFyR26btBs61GVkn+/L4V0T5mWLqWp2+RKXkTnL43sv4e4HHWVm1e7W778z7H7PsT7zh2HvvH3kH/ACzko/6cp8Wz6Nn1L2TV74WvD+GtddlKEf1izX406uzZ43VvJSFN7GoIUAAAKCFCUKQoEAAEIwAMWzimygDw/FX+Wn2cH9zRZ2rU7PcgPK87/Z+P29Dxfh+Xk0cS4vJLVrmcPHGpWbAOERy6z06uDvKjKL3g2k+sXqvpe3yOGlUsyAsq9KFTb1Qz8u4BVZxV52OtGpqATCJWtTWT3i3ur+jv/REo1LlAgcjZxymASMJSLTYBKEq1Lzgu6f0/tGWOqaWKAh1JPRn0X2QV/NjKfahJfWon+gBowfOHLN8JfSigHosKlAAAAAAABQAl/9k=',
-        role: 'Front End Developer',
-        date: '23 August 2023',
-        shift: '',
-        timeIn: '9:00',
-        timeOut: '8:00',
-        overTime: '0.00',
-        workTime: '05.00',
-        status: 'Half Day'
-    },
-    {
-        id: 1003,
-        name: 'Manuel Solis',
-        img: 'https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        role: 'Front End Developer',
-        date: '23 August 2023',
-        shift: '',
-        timeIn: '9:00',
-        timeOut: '8:00',
-        overTime: '0.00',
-        workTime: '05.00',
-        status: 'Half Day'
-    },
-    {
-        id: 1004,
-        name: 'Sam Molin',
-        role: 'Front End Developer',
-        date: '23 August 2023',
-        shift: '',
-        timeIn: '9:00',
-        timeOut: '8:00',
-        overTime: '0.00',
-        workTime: '05.00',
-        status: 'Half Day'
-    },
-    {
-        id: 1005,
-        name: 'Manuel Solis',
-        img: 'https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        role: 'Front End Developer',
-        date: '23 August 2023',
-        shift: '',
-        timeIn: '9:00',
-        timeOut: '8:00',
-        overTime: '0.00',
-        workTime: '05.00',
-        status: 'Half Day'
-    },
-    {
-        id: 1006,
-        name: 'Sam Molin',
-        role: 'Front End Developer',
-        date: '23 August 2023',
-        shift: '',
-        timeIn: '9:00',
-        timeOut: '8:00',
-        overTime: '0.00',
-        workTime: '05.00',
-        status: 'Half Day'
-    },
-    {
-        id: 1005,
-        name: 'Manuel Solis',
-        img: 'https://images.pexels.com/photos/5378700/pexels-photo-5378700.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        role: 'Front End Developer',
-        date: '23 August 2023',
-        shift: '',
-        timeIn: '9:00',
-        timeOut: '8:00',
-        overTime: '0.00',
-        workTime: '05.00',
-        status: 'Half Day'
-    },
-    {
-        id: 100,
-        name: 'Sam Molin',
-        role: 'Front End Developer',
-        date: '23 August 2023',
-        shift: '',
-        timeIn: '9:00',
-        timeOut: '8:00',
-        overTime: '0.00',
-        workTime: '05.00',
-        status: 'Half Day'
+        status: 'Present'
     }
 ]
 
@@ -201,7 +201,7 @@ export const internData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
+        status: 'Present'
     },
     {
         id: 1005,
@@ -214,7 +214,7 @@ export const internData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
+        status: 'Absent'
     },
    
 
@@ -228,7 +228,7 @@ export const internData = [
         timeOut: '8:00',
         overTime: '0.00',
         workTime: '05.00',
-        status: 'Half Day'
+        status: 'Present'
     },
     {
         id: 1005,

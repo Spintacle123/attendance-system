@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col border-2 rounded-xl px-6 py-3 w-[14%] font-bold">
+    <div class="flex flex-col  grow border-2 rounded-xl px-6 py-3 sm:w-[14%] font-bold">
         <h2 class="text-[#808080] text-[15px]">{{ title }}</h2>
         <span class="text-[24px]">{{ total }}</span>
         <div class="flex justify-end ">

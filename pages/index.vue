@@ -2,31 +2,34 @@
     <VHeader/>
     <main class="flex flex-col items-center gap-4 py-6 px-8 mt-[5rem] bg-white">
 <!-- SUMMARY SECTION-->       
-      <section class="flex items-center grow gap-4 py-3 px-6 rounded-lg border-2 border-custom-gray w-[100%]">
-        <div class="flex items-center gap-4 p-4 w-[40%]">
+      <section class="flex flex-col items-center grow gap-4 py-3 px-6 rounded-lg border-2 border-custom-gray w-[100%] sm:flex-row">
+        <div class="flex items-center gap-4 p-4 w-full sm:w-[40%]">
             <Icon icon="mdi:megaphone" :style="{ fontSize: '64px', color: 'var(--custom-red)' }"/>
-            <span class="font-bold text-2xl text-[#000]">{{ formattedDate}}</span>
+            <span class="font-bold text-lg sm:text-2xl text-[#000]">{{ formattedDate}}</span>
         </div>
     <!-- Cards -->
-        <VCard title="Total Employees" total="50" icon="clarity:employee-solid"/>
-        <VCard title="On Time" total="25" icon="mdi:clock"/>
-        <VCard title="Late In" total="20" icon="material-symbols:assignment-late" color="var(--custom-red)"/>
-        <VCard title="Absent" total="5" icon="material-symbols:close" color="var(--custom-red)"/>
+        <div class="flex items-center grow gap-4 w-[100%] sm:w-[60%] flex-wrap">
+            <VCard title="Total Employees" total="50" icon="clarity:employee-solid"/>
+            <VCard title="On Time" total="25" icon="mdi:clock"/>
+            <VCard title="Late In" total="20" icon="material-symbols:assignment-late" color="var(--custom-red)"/>
+            <VCard title="Absent" total="5" icon="material-symbols:close" color="var(--custom-red)"/>
+        </div>
+
       </section>  
 <!-- EMPLOYEE ATTENDANCE SECTION -->
       <section class="flex flex-col items-center grow rounded-lg border-2 border-custom-gray w-[100%]">
     <!-- Employee attendance header -->
-        <header class="flex items-center gap-6 py-4 px-6 w-[100%]">
+        <header class="flex flex-col items-center gap-6 py-4 px-6 w-[100%] sm:flex-row">
             <div class="grow">
                 <h2 class="font-bold text-2xl">Employee Attendance</h2>
                 <span class="text-sm ">Keep track of the employee attendance on a daily basis</span>
             </div>
             <div class="flex gap-4 text-sm font-bold text-white">
-                <VDropdown title="Export" icon="solar:upload-outline" @handleClick="" :list="[{title:'Export to Word',icon:'vscode-icons:file-type-word'},{title:'Export to PDF',icon:'vscode-icons:file-type-pdf2'},{title:'Export to Excel',icon:'vscode-icons:file-type-excel'},{title:'Office Templates', icon:'logos:microsoft-icon'}]"/>
-                <VDropdown title="Add Employee" icon="material-symbols:add" :list="[{title:'Directly Add',icon:'gg:list'},{title:'Send to Email',icon:'cib:gmail'}]"/>
+                <Export/>
+                <VDropdown title="Add Employee" icon="material-symbols:add" :list="[{title:'Directly Add',icon:'gg:list'},{title:'Send to Email',icon:'cib:gmail'}]"></VDropdown>
              <!--- <VButton title="23 August 2023" icon="solar:calendar-linear" styled="secondary" @handleClick=""/>
              -->
-                <input type="date"  class="flex items-center gap-4 py-3 px-6 rounded-lg text-black border border-custom-gray focus:outline-none"/>   
+                <input type="date"  v-model="selectedDate" class="flex items-center gap-4 py-3 px-6 rounded-lg text-black border border-custom-gray focus:outline-none"/>   
             </div>
         </header>
     <!-- Filtering buttons -->
@@ -44,7 +47,7 @@
             </div>
         </div>
     <!-- Table -->
-        <div class="w-[100%] border-t h-[40vh] overflow-auto">
+        <div class="w-[100%] border-t h-[100vh] overflow-auto sm:h-[40vh]">
             <table class="table w-[100%] ">
                 <thead class="font-bold text-[15px] text-[#808080] bg-[#F8F8F8] sticky top-0">
                     <tr class="text-left">
@@ -75,16 +78,15 @@
                         <td class="py-3 px-6 min-w-[10em]">{{ item.date }}</td>
                         <td class="py-3 px-6">
                             <select id="shift" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected></option>
-                            <option value="MS">Morning Shift</option>
-                            <option value="AS">Afternoon Shift</option>
-                            <option value="NS">Night Shift</option>
+                            <option :selected="item.shift === 'MS' && true" value="MS">Morning Shift</option>
+                            <option :selected="item.shift === 'AS' && true" value="AS">Afternoon Shift</option>
+                            <option :selected="item.shift === 'NS' && true" value="NS">Night Shift</option>
                             </select></td>
                         <td class="py-3 px-6">{{ item.timeIn }} </td>
                         <td class="py-3 px-6">{{ item.timeOut }} </td>
                         <td class="py-3 px-6">{{ item.overTime }} hrs</td>
                         <td class="py-3 px-6">{{ item.workTime }} hrs</td>
-                        <td class="py-3 px-6">{{ item.status }} </td>
+                        <td class="py-3 px-6 font-bold" :style="{ color: item.status === 'Half Day' ? '#DAAD0D' : item.status === 'Present' ? '#2E8F00' :'#E42323'  }">{{ item.status }}</td>
                         <td class="py-3 px-2"><VButton icon="ri:delete-bin-line" iconBtn="iconBtn" @handleClick="delModalOpen=!delModalOpen"/></td>
                     </tr>
                 </tbody>
@@ -109,7 +111,7 @@
 
 import { Icon } from '@iconify/vue';
 import { ref ,computed } from 'vue'
-import {employeeData, internData} from '../components/index'
+import {employeeData, internData} from '../components/index.js'
 
 const searchText = ref("")
 const delModalOpen=ref(false)
@@ -141,7 +143,8 @@ const totalPages =  computed(()=>{
 
 // function to toggle between employees and interns table
 const changeData = (data) => {
-   return items.value= data
+    currentPage.value = 1
+    items.value= data
 }
 
 
@@ -156,8 +159,21 @@ const day = currentDate.getDate();
 const month = currentDate.getMonth();
 const year = currentDate.getFullYear();
 const formattedDate = `Today, ${day} ${monthNames[month]} ${year}`;
+const selectedDate=  new Date().toISOString().substr(0, 10)
 
+const dropdownItems = ref([
+      { title: 'Export to Word', icon: 'vscode-icons:file-type-word' },
+      { title: 'Export to PDF', icon: 'vscode-icons:file-type-pdf2' },
+      { title: 'Export to Excel', icon: 'vscode-icons:file-type-excel' },
+      { title: 'Office Templates', icon: 'logos:microsoft-icon' }
+    ]);
 
-
+    const handleDropdownClick = (clickedTitle) => {
+        const selectedItem = dropdownItems.value.find((item) => item.title === clickedTitle);
+        if (selectedItem) {
+            console.log(selectedItem.title + ' clicked');
+        
+        }
+    };
 
 </script>

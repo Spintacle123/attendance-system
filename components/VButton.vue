@@ -1,7 +1,7 @@
 <template>
-       <button @click="$emit('handleClick')" :class="[iconBtn? 'iconOnly': styled  ? styled : 'primary', 'flex items-center gap-4 py-3 px-6 rounded-lg active:bg-white active:text-black']">
-        <Icon v-if="icon" :icon="icon" :class="iconBtn"/> {{ title }}
-      </button>
+    <button @click="$emit('handleClick')" :class="[iconBtn? 'iconOnly': styled  ? styled : 'primary', 'flex items-center gap-4 p-2  rounded-lg active:bg-white active:text-black sm:py-3 sm:px-6']">
+        <Icon v-if="icon" :icon="icon" :class="iconBtn"/><span v-if="title" class="hidden sm:flex">{{ title }}</span>
+    </button>
 </template>
 
 <script setup>
