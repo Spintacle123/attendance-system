@@ -25,7 +25,7 @@
                 <span class="text-sm ">Keep track of the employee attendance on a daily basis</span>
             </div>
             <div class="flex gap-4 text-sm font-bold text-white">
-                <Export/>
+                <Export :items="items"/>
                 <VDropdown title="Add Employee" icon="material-symbols:add" :list="[{title:'Directly Add',icon:'gg:list'},{title:'Send to Email',icon:'cib:gmail'}]"></VDropdown>
              <!--- <VButton title="23 August 2023" icon="solar:calendar-linear" styled="secondary" @handleClick=""/>
              -->
