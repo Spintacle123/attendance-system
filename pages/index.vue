@@ -26,7 +26,10 @@
             </div>
             <div class="flex gap-4 text-sm font-bold text-white">
                 <Export :items="items"/>
-                <VDropdown title="Add Employee" icon="material-symbols:add" :list="[{title:'Directly Add',icon:'gg:list'},{title:'Send to Email',icon:'cib:gmail'}]"></VDropdown>
+                <VDropdown title="Add Employee" icon="material-symbols:add" >
+                    <div class="flex items-center gap-4 p-4 hover:bg-red-100 cursor-pointer"  @click="exportToWord"><Icon icon="gg:list" /> Directly Add</div>
+                    <div class="flex items-center gap-4 p-4 hover:bg-red-100 cursor-pointer"  @click="exportToWord"><Icon icon="cib:gmail" /> Send to Email</div>
+                </VDropdown>
              <!--- <VButton title="23 August 2023" icon="solar:calendar-linear" styled="secondary" @handleClick=""/>
              -->
                 <input type="date"  v-model="selectedDate" class="flex items-center gap-4 py-3 px-6 rounded-lg text-black border border-custom-gray focus:outline-none"/>   
@@ -87,7 +90,7 @@
                         <td class="py-3 px-6">{{ item.overTime }} hrs</td>
                         <td class="py-3 px-6">{{ item.workTime }} hrs</td>
                         <td class="py-3 px-6 font-bold" :style="{ color: item.status === 'Half Day' ? '#DAAD0D' : item.status === 'Present' ? '#2E8F00' :'#E42323'  }">{{ item.status }}</td>
-                        <td class="py-3 px-2"><VButton icon="ri:delete-bin-line" iconBtn="iconBtn" @handleClick="delModalOpen=!delModalOpen"/></td>
+                        <td class="py-3 px-2"><VButton icon="ri:delete-bin-line" iconBtn="iconBtn" @handleClick="() => {delModalOpen = true;}"/></td>
                     </tr>
                 </tbody>
             </table>
@@ -101,8 +104,8 @@
             </div>
         </div>
       </section>
-      <VModal v-if="delModalOpen"  @close-modal="delModalOpen = false"  title="Delete Employee" subtitle="You are going to delete an employee. Are you sure?" color="#E42326" img="/img/delete.png" icon="ri:delete-bin-line" name="Yes, Delete" secondBtn="No, Keep It"/>
-       
+      <VModal v-if="delModalOpen" @handle-click="handleDelete(selectedID)" @close-modal="delModalOpen = false" title="Delete Employee" subtitle="You are going to delete an employee. Are you sure?" color="#E42326" img="/img/delete.png" icon="ri:delete-bin-line" name="Yes, Delete" secondBtn="No, Keep It"/>
+
     </main>
 </template>
 
@@ -117,7 +120,6 @@ const searchText = ref("")
 const delModalOpen=ref(false)
 const items = ref(employeeData)
 const selectedID = ref()
-
 
 // functions for searching and pagination
 const currentPage = ref(1);
@@ -150,6 +152,8 @@ const changeData = (data) => {
 
 const handleRowClick = (item)=>{
     selectedID.value= item
+
+    console.log(selectedID.name)
 }
 
 // Get formatted date
@@ -161,19 +165,14 @@ const year = currentDate.getFullYear();
 const formattedDate = `Today, ${day} ${monthNames[month]} ${year}`;
 const selectedDate=  new Date().toISOString().substr(0, 10)
 
-const dropdownItems = ref([
-      { title: 'Export to Word', icon: 'vscode-icons:file-type-word' },
-      { title: 'Export to PDF', icon: 'vscode-icons:file-type-pdf2' },
-      { title: 'Export to Excel', icon: 'vscode-icons:file-type-excel' },
-      { title: 'Office Templates', icon: 'logos:microsoft-icon' }
-    ]);
 
-    const handleDropdownClick = (clickedTitle) => {
-        const selectedItem = dropdownItems.value.find((item) => item.title === clickedTitle);
-        if (selectedItem) {
-            console.log(selectedItem.title + ' clicked');
-        
-        }
-    };
+const handleDelete = (item) => {
+    delModalOpen.value = false
+    const index = items.value.findIndex(emp => emp.id === item.id);
 
+    if (index > -1) {
+        items.value.splice(index, 1);
+        clickedRow.value = null;
+    }
+};
 </script>
